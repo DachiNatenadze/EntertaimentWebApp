@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import MovieLogo from "../assets/logo.svg";
 
 export default function Login() {
@@ -36,9 +37,11 @@ export default function Login() {
                 <h2 className="text-[#FFF] text-center text-[15px] font-normal leading-[normal]">
                   Don’t have an account?{" "}
                 </h2>
-                <span className="text-[#FC4747] text-center text-[15px] font-normal leading-[normal]">
-                  Sign Up
-                </span>
+                <Link to={`/Signup`}>
+                  <span className="text-[#FC4747] text-center text-[15px] font-normal leading-[normal]">
+                    Sign Up
+                  </span>
+                </Link>
               </div>
             </div>
           </div>
