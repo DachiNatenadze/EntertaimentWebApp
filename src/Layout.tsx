@@ -26,12 +26,13 @@ interface MyContextType {
   setRepeatPassword: React.Dispatch<React.SetStateAction<string>>;
 }
 
+
+
 export default function Layout() {
   const [EmailAddress, setEmailAddress] = useState<string>("");
   const [Password, setPassword] = useState<string>("");
   const [ShowError, setShowError] = useState<boolean>(false);
   const [RepeatPassword, setRepeatPassword] = useState("");
-
   return (
     <BrowserRouter>
       <MyContext.Provider
@@ -46,8 +47,8 @@ export default function Layout() {
           setRepeatPassword,
         }}>
         <Routes>
-          <Route path="/" element={<LoginPage />} />
-          <Route path="/Signup" element={<Signup />} />
+          <Route path="/LoginPage" element={<LoginPage />} />
+          <Route path="/" element={<Signup />} />
         </Routes>
       </MyContext.Provider>
     </BrowserRouter>
