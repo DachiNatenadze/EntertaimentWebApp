@@ -2,6 +2,7 @@ import { createContext } from "react";
 import { useState } from "react";
 import LoginPage from "./Pages/Login";
 import Signup from "./Pages/Sign Up";
+import MoviesPage from "./Pages/MoviesPage";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 export const MyContext = createContext<MyContextType>({
@@ -26,8 +27,6 @@ interface MyContextType {
   setRepeatPassword: React.Dispatch<React.SetStateAction<string>>;
 }
 
-
-
 export default function Layout() {
   const [EmailAddress, setEmailAddress] = useState<string>("");
   const [Password, setPassword] = useState<string>("");
@@ -49,6 +48,7 @@ export default function Layout() {
         <Routes>
           <Route path="/LoginPage" element={<LoginPage />} />
           <Route path="/" element={<Signup />} />
+          <Route path="/Movies" element={<MoviesPage />} />
         </Routes>
       </MyContext.Provider>
     </BrowserRouter>
