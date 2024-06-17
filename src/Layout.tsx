@@ -4,6 +4,7 @@ import LoginPage from "./Pages/Login";
 import Signup from "./Pages/Sign Up";
 import MoviesPage from "./Pages/MoviesPage";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import MoviesData from "./data.json";
 
 export const MyContext = createContext<MyContextType>({
   EmailAddress: "",
@@ -16,6 +17,26 @@ export const MyContext = createContext<MyContextType>({
   setRepeatPassword: () => {},
   LoginIn: false,
   setLoginIn: () => {},
+  DataMovies: {
+    title: "",
+    thumbnail: {
+      trending: {
+        small: "",
+        medium: "",
+        large: "",
+      },
+      regular: {
+        small: "",
+        medium: "",
+        large: "",
+      },
+    },
+    year: 0,
+    category: "",
+    rating: "",
+    isBookmarked: false,
+    isTrending: false,
+  },
 });
 
 interface MyContextType {
@@ -24,6 +45,26 @@ interface MyContextType {
   ShowError: boolean;
   LoginIn: boolean;
   RepeatPassword: string;
+  DataMovies: {
+    title: string;
+    thumbnail: {
+      trending: {
+        small: string;
+        medium: string;
+        large: string;
+      };
+      regular: {
+        small: string;
+        medium: string;
+        large: string;
+      };
+    };
+    year: number;
+    category: string;
+    rating: string;
+    isBookmarked: boolean;
+    isTrending: boolean;
+  };
   setShowError: React.Dispatch<React.SetStateAction<boolean>>;
   setPassword: React.Dispatch<React.SetStateAction<string>>;
   setEmailAddress: React.Dispatch<React.SetStateAction<string>>;
@@ -37,10 +78,15 @@ export default function Layout() {
   const [LoginIn, setLoginIn] = useState<boolean>(false);
   const [ShowError, setShowError] = useState<boolean>(false);
   const [RepeatPassword, setRepeatPassword] = useState("");
+  const [DataMovies, setDataMovies] = useState(MoviesData);
+
+  console.log(DataMovies);
   return (
     <BrowserRouter>
       <MyContext.Provider
         value={{
+          DataMovies
+          setDataMovies,
           EmailAddress,
           setEmailAddress,
           Password,

@@ -1,4 +1,5 @@
-import { Link, Navigate, useNavigate } from "react-router-dom";
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+import { Link, useNavigate } from "react-router-dom";
 import MovieLogo from "../assets/logo.svg";
 import { useContext } from "react";
 import { MyContext } from "../Layout";
