@@ -1,9 +1,10 @@
-import { Link } from "react-router-dom";
+import { Link, Navigate, useNavigate } from "react-router-dom";
 import MovieLogo from "../assets/logo.svg";
 import { useContext } from "react";
 import { MyContext } from "../Layout";
 
 export default function Login() {
+  const Navigate = useNavigate();
   const {
     EmailAddress,
     setEmailAddress,
@@ -17,7 +18,17 @@ export default function Login() {
     if (EmailAddress.length == 0 || Password.length == 0) {
       setShowError(true);
     }
+    const DataOfUsers = JSON.parse(localStorage.getItem("DatasOfUser") || "[]");
+    const userInfo = DataOfUsers.find(
+      (userInfo: { EmailAddress: string; Password: string }) =>
+        userInfo.EmailAddress === EmailAddress && userInfo.Password === Password
+    );
+    console.log(DataOfUsers);
+    if (userInfo) {
+      Navigate("/Movies");
+    }
   };
+
   return (
     <>
       <main className="w-full flex flex-col items-center justify-center">
@@ -62,6 +73,7 @@ export default function Login() {
                   )}
                 </label>
               </form>
+
               <button
                 className="w-[279px] h-[48px] flex-shrink-0 rounded-[6px] bg-[#FC4747] mb-[24px]"
                 onClick={handleChange}>

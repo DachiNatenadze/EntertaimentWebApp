@@ -26,7 +26,8 @@ export default function Login() {
   };
 
   const SaveLogin = () => {
-    const DatasOfUser = JSON.parse(localStorage.getItem(`DatasOfUser`) || "[]");
+    const DatasOfUser = JSON.parse(localStorage.getItem("DatasOfUser") || "[]");
+
     const Data = {
       EmailAddress: EmailAddress,
       Password: Password,
@@ -35,7 +36,7 @@ export default function Login() {
 
     DatasOfUser.push(Data);
 
-    localStorage.setItem(`DataOfUser`, JSON.stringify(Data));
+    localStorage.setItem("DatasOfUser", JSON.stringify(DatasOfUser));
   };
 
   return (
