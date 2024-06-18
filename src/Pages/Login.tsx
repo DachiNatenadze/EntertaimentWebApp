@@ -1,6 +1,6 @@
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { Link, useNavigate } from "react-router-dom";
-import MovieLogo from "../assets/logo.svg";
+import MovieLogo from "/assets/logo.svg";
 import { useContext } from "react";
 import { MyContext } from "../Layout";
 
@@ -16,17 +16,21 @@ export default function Login() {
   } = useContext(MyContext);
   const handleChange = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
-    if (EmailAddress.length == 0 || Password.length == 0) {
+
+    if (EmailAddress.length === 0 || Password.length === 0) {
       setShowError(true);
+      return;
     }
+    setShowError(false);
     const DataOfUsers = JSON.parse(localStorage.getItem("DatasOfUser") || "[]");
     const userInfo = DataOfUsers.find(
       (userInfo: { EmailAddress: string; Password: string }) =>
         userInfo.EmailAddress === EmailAddress && userInfo.Password === Password
     );
-    console.log(DataOfUsers);
     if (userInfo) {
       Navigate("/Movies");
+    } else {
+      setShowError(true);
     }
   };
 

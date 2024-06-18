@@ -1,9 +1,9 @@
-import Logo from "../assets/logo.svg";
-import TVSeries from "../assets/icon-nav-tv-series.svg";
-import BookMark from "../assets/icon-nav-bookmark.svg";
-import Home from "../assets/icon-nav-home.svg";
-import Movies from "../assets/icon-nav-movies.svg";
-import Avatar from "../assets/image-avatar.png";
+import Logo from "/assets/logo.svg";
+import TVSeries from "/assets/icon-nav-tv-series.svg";
+import BookMark from "/assets/icon-nav-bookmark.svg";
+import Home from "/assets/icon-nav-home.svg";
+import Movies from "/assets/icon-nav-movies.svg";
+import Avatar from "/assets/image-avatar.png";
 export default function NavBar() {
   return (
     <main>

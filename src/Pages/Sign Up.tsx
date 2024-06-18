@@ -1,5 +1,5 @@
 import { Link,} from "react-router-dom";
-import MovieLogo from "../assets/logo.svg";
+import MovieLogo from "/assets/logo.svg";
 import { useContext } from "react";
 import { MyContext } from "../Layout";
 
