@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link,} from "react-router-dom";
 import MovieLogo from "../assets/logo.svg";
 import { useContext } from "react";
 import { MyContext } from "../Layout";
@@ -99,7 +99,7 @@ export default function Login() {
                     )}
                     {ShowError && Password !== RepeatPassword && (
                       <h2 className="w-fit absolute bottom-[58px] left-[180px] text-[#FC4747] font-[Outfit] text-[13px] not-italic font-normal leading-[normal]">
-                        Password do not match
+                        Passwords do not match
                       </h2>
                     )}
                   </label>

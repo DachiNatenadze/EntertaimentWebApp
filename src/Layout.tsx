@@ -1,4 +1,4 @@
-import { createContext } from "react";
+import React, { createContext } from "react";
 import { useState } from "react";
 import LoginPage from "./Pages/Login";
 import Signup from "./Pages/Sign Up";
@@ -17,59 +17,26 @@ export const MyContext = createContext<MyContextType>({
   setRepeatPassword: () => {},
   LoginIn: false,
   setLoginIn: () => {},
-  DataMovies: {
-    title: "",
-    thumbnail: {
-      trending: {
-        small: "",
-        medium: "",
-        large: "",
-      },
-      regular: {
-        small: "",
-        medium: "",
-        large: "",
-      },
-    },
-    year: 0,
-    category: "",
-    rating: "",
-    isBookmarked: false,
-    isTrending: false,
-  },
+  DataMovies: [],
+  setDataMovies: () => {},
+  SearchMovieValue: "",
+  setSearchMovieValue: () => {},
 });
-
 interface MyContextType {
   EmailAddress: string;
   Password: string;
   ShowError: boolean;
   LoginIn: boolean;
   RepeatPassword: string;
-  DataMovies: {
-    title: string;
-    thumbnail: {
-      trending: {
-        small: string;
-        medium: string;
-        large: string;
-      };
-      regular: {
-        small: string;
-        medium: string;
-        large: string;
-      };
-    };
-    year: number;
-    category: string;
-    rating: string;
-    isBookmarked: boolean;
-    isTrending: boolean;
-  };
+  DataMovies: Movie[];
+  SearchMovieValue: string;
   setShowError: React.Dispatch<React.SetStateAction<boolean>>;
   setPassword: React.Dispatch<React.SetStateAction<string>>;
   setEmailAddress: React.Dispatch<React.SetStateAction<string>>;
   setRepeatPassword: React.Dispatch<React.SetStateAction<string>>;
   setLoginIn: React.Dispatch<React.SetStateAction<boolean>>;
+  setDataMovies: React.Dispatch<React.SetStateAction<Movie[]>>;
+  setSearchMovieValue: React.Dispatch<React.SetStateAction<string>>;
 }
 
 export default function Layout() {
@@ -78,14 +45,17 @@ export default function Layout() {
   const [LoginIn, setLoginIn] = useState<boolean>(false);
   const [ShowError, setShowError] = useState<boolean>(false);
   const [RepeatPassword, setRepeatPassword] = useState("");
-  const [DataMovies, setDataMovies] = useState(MoviesData);
+  const [DataMovies, setDataMovies] = useState<Movie[]>(MoviesData);
+  const [SearchMovieValue, setSearchMovieValue] = useState<string>("");
 
   console.log(DataMovies);
   return (
     <BrowserRouter>
       <MyContext.Provider
         value={{
-          DataMovies
+          SearchMovieValue,
+          setSearchMovieValue,
+          DataMovies,
           setDataMovies,
           EmailAddress,
           setEmailAddress,
