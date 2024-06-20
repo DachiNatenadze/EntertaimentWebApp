@@ -4,8 +4,17 @@ import SearchMovie from "./SearchMovie";
 import { MyContext } from "../Layout";
 
 export default function MoviesPage() {
-  const { SearchMovieValue, setSearchMovieValue, DataMovies, setDataMovies } =
-    useContext(MyContext);
+  const {
+    DataMoviesCopy,
+    setDataMoviesCopy,
+    SearchMovieValue,
+    setSearchMovieValue,
+    DataMovies,
+    setDataMovies,
+  } = useContext(MyContext);
+
+  const finallMovies =
+    DataMoviesCopy.length <= 6 ? DataMoviesCopy : DataMoviesCopy.slice(5, 100);
   return (
     <>
       <main>
@@ -65,11 +74,18 @@ export default function MoviesPage() {
             ))}
           </div>
         </div>
-        <h2 className="text-[#FFF] font-[Outfit] text-[20px] not-italic font-normal leading-[normal] tracking-[-0.312px] ml-[16px] mt-[24px] mb-[24px]">
-          Recommended for you
-        </h2>
+        {SearchMovieValue.length === 0 ? (
+          <h2 className="text-[#FFF] font-[Outfit] text-[20px] not-italic font-normal leading-normal tracking-[-0.312px] ml-[16px] mt-[24px] mb-[24px]">
+            Recommended for you
+          </h2>
+        ) : (
+          <h2 className="text-[#FFF] font-[Outfit] text-[20px] not-italic font-normal leading-normal tracking-[-0.312px] ml-[16px] mt-[24px] mb-[24px]">
+            Found {finallMovies.length} results for {SearchMovieValue}
+          </h2>
+        )}
+
         <div className="w-full flex flex-row justify-center gap-3 flex-wrap px-4">
-          {DataMovies.slice(5, 100).map((item, index) => (
+          {finallMovies.map((item, index) => (
             <div key={index} className="bg max-xs:w-full relative">
               <div
                 className="w-[240px] h-[140px] bg-center flex flex-wrap rounded-[10px] bg-cover bg-[linear-gradient(180deg,_rgba(0,_0,_0,_0.00)_0%,_rgba(0,_0,_0,_0.75)_100%)] max-md:w-[220px] max-sm:w-[156px] max-sm:h-[100px] max-xs:w-full"

@@ -1,9 +1,24 @@
 import { useContext } from "react";
 import { MyContext } from "../Layout";
 import Searchimg from "/assets/icon-search.svg";
+import data from "../data.json";
 
 export default function SearchMovie() {
-  const { SearchMovieValue, setSearchMovieValue } = useContext(MyContext);
+  const { setDataMoviesCopy, SearchMovieValue, setSearchMovieValue } =
+    useContext(MyContext);
+
+  const FilterPost = (e) => {
+    const value = e.target.value;
+    setSearchMovieValue(value);
+    if (!SearchMovieValue) {
+      return setDataMoviesCopy(data);
+    }
+    const filteredMovies = data.filter((movies) => {
+      return movies.title.toLowerCase().includes(value.toLowerCase());
+    });
+    setDataMoviesCopy(filteredMovies);
+  };
+
   return (
     <>
       <main>
@@ -15,9 +30,7 @@ export default function SearchMovie() {
               placeholder="Search for movies or TV series"
               type="text"
               value={SearchMovieValue}
-              onChange={(e) => {
-                setSearchMovieValue(e.target.value);
-              }}
+              onChange={FilterPost}
             />
           </div>
         </section>

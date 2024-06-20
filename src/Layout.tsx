@@ -21,6 +21,8 @@ export const MyContext = createContext<MyContextType>({
   setDataMovies: () => {},
   SearchMovieValue: "",
   setSearchMovieValue: () => {},
+  DataMoviesCopy: [],
+  setDataMoviesCopy: () => {},
 });
 interface MyContextType {
   EmailAddress: string;
@@ -30,6 +32,7 @@ interface MyContextType {
   RepeatPassword: string;
   DataMovies: Movie[];
   SearchMovieValue: string;
+  DataMoviesCopy: Movie[];
   setShowError: React.Dispatch<React.SetStateAction<boolean>>;
   setPassword: React.Dispatch<React.SetStateAction<string>>;
   setEmailAddress: React.Dispatch<React.SetStateAction<string>>;
@@ -37,6 +40,7 @@ interface MyContextType {
   setLoginIn: React.Dispatch<React.SetStateAction<boolean>>;
   setDataMovies: React.Dispatch<React.SetStateAction<Movie[]>>;
   setSearchMovieValue: React.Dispatch<React.SetStateAction<string>>;
+  setDataMoviesCopy: React.Dispatch<React.SetStateAction<Movie[]>>;
 }
 
 export default function Layout() {
@@ -47,12 +51,15 @@ export default function Layout() {
   const [RepeatPassword, setRepeatPassword] = useState("");
   const [DataMovies, setDataMovies] = useState<Movie[]>(MoviesData);
   const [SearchMovieValue, setSearchMovieValue] = useState<string>("");
+  const [DataMoviesCopy, setDataMoviesCopy] = useState<Movie[]>(MoviesData);
 
   console.log(DataMovies);
   return (
     <BrowserRouter>
       <MyContext.Provider
         value={{
+          DataMoviesCopy,
+          setDataMoviesCopy,
           SearchMovieValue,
           setSearchMovieValue,
           DataMovies,
