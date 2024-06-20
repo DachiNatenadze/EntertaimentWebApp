@@ -6,11 +6,9 @@ import { MyContext } from "../Layout";
 export default function MoviesPage() {
   const {
     DataMoviesCopy,
-    setDataMoviesCopy,
     SearchMovieValue,
-    setSearchMovieValue,
+
     DataMovies,
-    setDataMovies,
   } = useContext(MyContext);
 
   const finallMovies =

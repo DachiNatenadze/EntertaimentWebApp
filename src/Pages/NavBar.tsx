@@ -4,6 +4,7 @@ import BookMark from "/assets/icon-nav-bookmark.svg";
 import Home from "/assets/icon-nav-home.svg";
 import Movies from "/assets/icon-nav-movies.svg";
 import Avatar from "/assets/image-avatar.png";
+import { Link } from "react-router-dom";
 export default function NavBar() {
   return (
     <main>
@@ -17,21 +18,27 @@ export default function NavBar() {
             src={Home}
             alt=""
           />
-          <img
-            className="h-[16px] transform transition duration-300 hover:scale-110 hover:invert"
-            src={Movies}
-            alt=""
-          />
-          <img
-            className="h-[16px] transform transition duration-300 hover:scale-110 hover:invert"
-            src={TVSeries}
-            alt=""
-          />
-          <img
-            className="h-[16px] transform transition duration-300 hover:scale-110 hover:invert"
-            src={BookMark}
-            alt=""
-          />
+          <Link to={"/TypeMovies"}>
+            <img
+              className="h-[16px] transform transition duration-300 hover:scale-110 hover:invert"
+              src={Movies}
+              alt=""
+            />
+          </Link>
+          <Link to={"/TypeTVSeries"}>
+            <img
+              className="h-[16px] transform transition duration-300 hover:scale-110 hover:invert"
+              src={TVSeries}
+              alt=""
+            />
+          </Link>
+          <Link to={"/TypeBookMarked"}>
+            <img
+              className="h-[16px] transform transition duration-300 hover:scale-110 hover:invert"
+              src={BookMark}
+              alt=""
+            />
+          </Link>
         </div>
         <div className="img flex items-center justify-center">
           <img

@@ -5,6 +5,9 @@ import Signup from "./Pages/Sign Up";
 import MoviesPage from "./Pages/MoviesPage";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import MoviesData from "./data.json";
+import Movies from "./Pages/Movies";
+import TVSeries from "./Pages/TVSeries";
+import BookMarked from "./Pages/Bookmarked";
 
 export const MyContext = createContext<MyContextType>({
   EmailAddress: "",
@@ -79,6 +82,9 @@ export default function Layout() {
           <Route path="/LoginPage" element={<LoginPage />} />
           <Route path="/" element={<Signup />} />
           <Route path="/Movies" element={<MoviesPage />} />
+          <Route path="/TypeMovies" element={<Movies />} />
+          <Route path="/TypeTvSeries" element={<TVSeries />} />
+          <Route path="/TypeBookMarked" element={<BookMarked />} />
         </Routes>
       </MyContext.Provider>
     </BrowserRouter>

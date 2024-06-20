@@ -23,7 +23,7 @@ export default function SearchMovie() {
     <>
       <main>
         <section>
-          <div className="flex flex-row gap-4 mt-[24px] ml-[16px] text-[#FFF] text-[16px] not-italic  leading-[normal] outline-none">
+          <div className="flex flex-row gap-4 mt-[24px] ml-[12px] text-[#FFF] text-[16px] not-italic  leading-[normal] outline-none">
             <img src={Searchimg} alt="" />
             <input
               className="w-[250px] bg-[#10141E]"
