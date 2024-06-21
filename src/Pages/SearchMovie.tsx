@@ -7,7 +7,8 @@ export default function SearchMovie() {
   const { setDataMoviesCopy, SearchMovieValue, setSearchMovieValue } =
     useContext(MyContext);
 
-  const FilterPost = (e) => {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const FilterPost = (e: { target: { value: any; }; }) => {
     const value = e.target.value;
     setSearchMovieValue(value);
     if (!SearchMovieValue) {

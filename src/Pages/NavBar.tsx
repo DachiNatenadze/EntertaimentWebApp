@@ -13,11 +13,13 @@ export default function NavBar() {
           <img className="w-[25px] h-[20px] mt-[3px]" src={Logo} alt="" />
         </div>
         <div className="flex flex-row items-center justify-center gap-7">
-          <img
-            className="h-[16px] transform transition duration-300 hover:scale-110 hover:invert"
-            src={Home}
-            alt=""
-          />
+          <Link to={"/Movies"}>
+            <img
+              className="h-[16px] transform transition duration-300 hover:scale-110 hover:invert"
+              src={Home}
+              alt=""
+            />
+          </Link>
           <Link to={"/TypeMovies"}>
             <img
               className="h-[16px] transform transition duration-300 hover:scale-110 hover:invert"

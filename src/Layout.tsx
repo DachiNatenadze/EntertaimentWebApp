@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import React, { createContext } from "react";
 import { useState } from "react";
 import LoginPage from "./Pages/Login";
@@ -19,6 +20,7 @@ export const MyContext = createContext<MyContextType>({
   RepeatPassword: "",
   setRepeatPassword: () => {},
   LoginIn: false,
+  BookmarkedMovies: [],
   setLoginIn: () => {},
   DataMovies: [],
   setDataMovies: () => {},
@@ -26,9 +28,11 @@ export const MyContext = createContext<MyContextType>({
   setSearchMovieValue: () => {},
   DataMoviesCopy: [],
   setDataMoviesCopy: () => {},
+  setBookmarkedMovies: () => {},
 });
 interface MyContextType {
   EmailAddress: string;
+  BookmarkedMovies: any[];
   Password: string;
   ShowError: boolean;
   LoginIn: boolean;
@@ -44,6 +48,7 @@ interface MyContextType {
   setDataMovies: React.Dispatch<React.SetStateAction<Movie[]>>;
   setSearchMovieValue: React.Dispatch<React.SetStateAction<string>>;
   setDataMoviesCopy: React.Dispatch<React.SetStateAction<Movie[]>>;
+  setBookmarkedMovies: React.Dispatch<React.SetStateAction<any[]>>;
 }
 
 export default function Layout() {
@@ -55,14 +60,18 @@ export default function Layout() {
   const [DataMovies, setDataMovies] = useState<Movie[]>(MoviesData);
   const [SearchMovieValue, setSearchMovieValue] = useState<string>("");
   const [DataMoviesCopy, setDataMoviesCopy] = useState<Movie[]>(MoviesData);
+  const [BookmarkedMovies, setBookmarkedMovies] = useState<any>(
+    JSON.parse(localStorage.getItem("bookmarked") as any)
+  );
 
-  console.log(DataMovies);
   return (
     <BrowserRouter>
       <MyContext.Provider
         value={{
           DataMoviesCopy,
+          BookmarkedMovies,
           setDataMoviesCopy,
+          setBookmarkedMovies,
           SearchMovieValue,
           setSearchMovieValue,
           DataMovies,

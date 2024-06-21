@@ -4,7 +4,7 @@ import { useContext } from "react";
 import { MyContext } from "../Layout";
 
 export default function Movies() {
-  const { DataMoviesCopy } = useContext(MyContext);
+  const { DataMoviesCopy, BookmarkedMovies } = useContext(MyContext);
   const Bookmarked = DataMoviesCopy.filter(
     (item) => item.isBookmarked === true && item.category === "Movie"
   );
@@ -13,6 +13,7 @@ export default function Movies() {
     (item) => item.isBookmarked === true && item.category === "TV Series"
   );
   console.log(Bookmarked);
+
   return (
     <>
       <NavBar />
@@ -24,7 +25,7 @@ export default function Movies() {
               Bookmarked Movies
             </h2>
             <div className="w-full flex flex-row justify-center gap-3 flex-wrap">
-              {Bookmarked.map((item, index) => (
+              {BookmarkedMovies.map((item, index) => (
                 <div key={index} className="bg max-xs:w-full relative">
                   <div
                     className="w-[240px] h-[140px] bg-center flex flex-wrap rounded-[10px] bg-cover bg-[linear-gradient(180deg,_rgba(0,_0,_0,_0.00)_0%,_rgba(0,_0,_0,_0.75)_100%)] max-md:w-[220px] max-sm:w-[156px] max-sm:h-[100px] max-xs:w-full"
