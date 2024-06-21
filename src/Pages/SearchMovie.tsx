@@ -7,7 +7,7 @@ export default function SearchMovie() {
   const { setDataMoviesCopy, SearchMovieValue, setSearchMovieValue } =
     useContext(MyContext);
 
-  const FilterPost = (e) => {
+  const FilterPost = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
     setSearchMovieValue(value);
     if (!SearchMovieValue) {
