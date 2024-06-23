@@ -31,12 +31,12 @@ export default function Movies() {
   };
   return (
     <>
-      <NavBar />
       <SearchMovie />
+      <NavBar />
       <main>
-        <section className="">
+        <section className="lg:ml-[150px]">
           <div className="w-full flex flex-col">
-            <h2 className="mt-[33px] px-4 mb-[24px] text-[#FFF] font-[Outfit] text-[20px] not-italic font-normal leading-[normal] tracking-[-0.312px]">
+            <h2 className="mt-[33px] px-4 mb-[24px] text-[#FFF] font-[Outfit] text-[20px] not-italic font-normal leading-[normal] tracking-[-0.312px] md:text-[32px]">
               Movies
             </h2>
             <div className="flex flex-row justify-center gap-3 flex-wrap px-4">

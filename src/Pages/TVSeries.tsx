@@ -34,12 +34,12 @@ export default function TVSeries() {
 
   return (
     <>
-      <NavBar />
       <SearchMovie />
-      <main>
+      <NavBar />
+      <main className="lg:ml-[160px]">
         <section>
           <div className="w-full flex flex-col px-4">
-            <h2 className="text-[#FFF] font-[Outfit] text-[20px] not-italic font-normal leading-[normal] tracking-[-0.312px] mt-[26px] mb-[16px]">
+            <h2 className="text-[#FFF] font-[Outfit] text-[20px] not-italic font-normal leading-[normal] tracking-[-0.312px] mt-[26px] mb-[16px] md:text-[32px]">
               TV Series
             </h2>
             <div className="w-full flex flex-row justify-center gap-3 flex-wrap">

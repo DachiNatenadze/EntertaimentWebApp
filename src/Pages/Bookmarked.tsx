@@ -16,12 +16,12 @@ export default function Movies() {
 
   return (
     <>
-      <NavBar />
       <SearchMovie />
-      <main>
+      <NavBar />
+      <main className="lg:ml-[160px]">
         <section>
           <div className="w-full flex flex-col justify-center gap-3 flex-wrap px-4">
-            <h2 className="text-[#FFF] font-[Outfit] text-[20px] not-italic font-normal leading-[normal] tracking-[-0.312px] mt-[26px] mb-[16px]">
+            <h2 className="text-[#FFF] font-[Outfit] text-[20px] not-italic font-normal leading-[normal] tracking-[-0.312px] mt-[26px] mb-[16px] md:text-[32px]">
               Bookmarked Movies
             </h2>
             <div className="w-full flex flex-row justify-center gap-3 flex-wrap">
@@ -88,7 +88,7 @@ export default function Movies() {
                 </div>
               ))}
             </div>
-            <h2 className="text-[#FFF] font-[Outfit] text-[20px] not-italic font-normal leading-[normal] tracking-[-0.312px] mt-[24px] mb-[24px]">
+            <h2 className="text-[#FFF] font-[Outfit] text-[20px] not-italic font-normal leading-[normal] tracking-[-0.312px] mt-[24px] mb-[24px] md:text-[32px]">
               Bookmarked TV Series
             </h2>
             <div className="w-full flex flex-row justify-center gap-3 flex-wrap">

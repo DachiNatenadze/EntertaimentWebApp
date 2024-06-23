@@ -51,7 +51,7 @@ export default function Login() {
               <form className="flex flex-col relative">
                 <label htmlFor="Email">
                   <input
-                    className="w-[279px] h-[37px] border-b border-[#5A698F] bg-[#161D2F] text-placeholder relative top-[-2px] py-7 px-3 focus:outline-none focus:ring-2 focus:ring-blue-500 text-[#FFF]"
+                    className="w-[279px] rounded-md h-[37px] border-b border-[#5A698F] bg-[#161D2F] text-placeholder relative top-[-2px] py-7 px-3 focus:outline-none focus:ring-2 focus:ring-blue-500 text-[#FFF]"
                     type="text"
                     placeholder="Email address"
                     onChange={(e) => setEmailAddress(e.target.value)}
@@ -66,7 +66,7 @@ export default function Login() {
               <form className="flex flex-col relative mb-[40px]">
                 <label htmlFor="Password">
                   <input
-                    className="relative w-[279px] h-[37px] border-b border-[#5A698F] bg-[#161D2F] text-placeholder top-[-2px] py-7 px-3 focus:outline-none focus:ring-2 focus:ring-blue-500 text-[#FFF]"
+                    className="relative rounded-md w-[279px] h-[37px] border-b border-[#5A698F] bg-[#161D2F] text-placeholder top-[-2px] py-7 px-3 focus:outline-none focus:ring-2 focus:ring-blue-500 text-[#FFF]"
                     type="password"
                     placeholder="Password"
                     onChange={(e) => setPassword(e.target.value)}

@@ -8,7 +8,7 @@ export default function SearchMovie() {
     useContext(MyContext);
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const FilterPost = (e: { target: { value: any; }; }) => {
+  const FilterPost = (e: { target: { value: any } }) => {
     const value = e.target.value;
     setSearchMovieValue(value);
     if (!SearchMovieValue) {
@@ -22,12 +22,12 @@ export default function SearchMovie() {
 
   return (
     <>
-      <main>
+      <main className="lg:ml-[150px] lg:mt-[32px]">
         <section>
           <div className="flex flex-row gap-4 mt-[24px] ml-[12px] text-[#FFF] text-[16px] not-italic  leading-[normal] outline-none">
             <img src={Searchimg} alt="" />
             <input
-              className="w-[250px] bg-[#10141E]"
+              className="w-full outline-none bg-[#10141E]"
               placeholder="Search for movies or TV series"
               type="text"
               value={SearchMovieValue}
