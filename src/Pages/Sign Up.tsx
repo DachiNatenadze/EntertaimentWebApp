@@ -42,7 +42,7 @@ export default function Login() {
   return (
     <>
       <main className="w-full flex flex-col items-center justify-center">
-        <div className="sm: hidden lg:block">
+        <div className=" lg:block">
           <section className="flex flex-col items-center justify-center">
             <img
               className="mt-[78px] mb-[48px]"

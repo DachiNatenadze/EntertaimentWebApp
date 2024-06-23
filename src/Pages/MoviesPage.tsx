@@ -1,15 +1,16 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import NavBar from "./NavBar";
 import SearchMovie from "./SearchMovie";
 import { MyContext } from "../Layout";
 
 export default function MoviesPage() {
+  const [isSearching, setIsSearching] = useState<boolean>(false)
   const {
     DataMoviesCopy,
     SearchMovieValue,
     BookmarkedMovies,
-
+    setSearchMovieValue,
     setBookmarkedMovies,
     DataMovies,
   } = useContext(MyContext);
@@ -33,14 +34,13 @@ export default function MoviesPage() {
     }
     localStorage.setItem("bookmarked", JSON.stringify(BookmarkedMovies));
   };
-
   return (
     <>
       <main>
         <NavBar />
         <SearchMovie />
-        <div className="px-[16px] w-full">
-          <h2 className="text-[#FFF] font-[Outfit] text-[20px] not-italic font-normal leading-[normal] tracking-[-0.312px] mt-[26px] mb-[16px]">
+      {SearchMovieValue === "" ? <div className="px-[16px] w-full">
+          <h2 className="text-[#FFF] font-[Outfit] text-[20px] not-italic font-normal leading-[normal] tracking-[-0.312px] mt-[26px] mb-[16px] md:mt-[36px] md:mb-[35px]">
             Trending
           </h2>
           <div className="slider w-full h-fit flex flex-row overflow-scroll gap-4">
@@ -92,22 +92,24 @@ export default function MoviesPage() {
               </div>
             ))}
           </div>
-        </div>
+        </div> : null}
         {SearchMovieValue.length === 0 ? (
-          <h2 className="text-[#FFF] font-[Outfit] text-[20px] not-italic font-normal leading-normal tracking-[-0.312px] ml-[16px] mt-[24px] mb-[24px]">
+          <h2 className="text-[#FFF] font-[Outfit] text-[20px] not-italic font-normal leading-normal tracking-[-0.312px] ml-[16px] mt-[24px] mb-[24px] md:mt-[36px] md:mb-[35px]">
             Recommended for you
           </h2>
         ) : (
-          <h2 className="text-[#FFF] font-[Outfit] text-[20px] not-italic font-normal leading-normal tracking-[-0.312px] ml-[16px] mt-[24px] mb-[24px]">
+          <h2 className="text-[#FFF] font-[Outfit] text-[20px] not-italic font-normal leading-normal tracking-[-0.312px] ml-[16px] mt-[24px] mb-[24px] md:mt-[36px] md:mb-[35px]">
             Found {finallMovies.length} results for {SearchMovieValue}
           </h2>
         )}
 
         <div className="w-full flex flex-row justify-center gap-3 flex-wrap px-4">
           {finallMovies.map((item, index) => {
-            const isBookmarked = BookmarkedMovies && BookmarkedMovies.find((movie) => {
-              return movie.title === item.title;
-            });
+            const isBookmarked =
+              BookmarkedMovies &&
+              BookmarkedMovies.find((movie) => {
+                return movie.title === item.title;
+              });
             return (
               <div key={index} className="bg max-xs:w-full relative">
                 <div
